@@ -1,0 +1,331 @@
+
+<html>
+<head>
+<title>Mulligan's Knockout</title>
+<style type="text/css">
+
+
+.main_div
+{
+    position: absolute;
+    font-family: "Verdana";
+    top: 10px;
+    left: 10px;
+    width: 900px;
+    height: 920px;
+    border: 3px solid gray;
+    border-radius: 8px;
+    background: #4B79A1;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #283E51, #4B79A1);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.login_div
+{
+    font-family: "Verdana";
+    position: absolute;
+    top: 80px;
+    left: 7px;
+    border: 1px solid white;
+    border-radius: 15px;
+    /* width: 120%; */
+    width: 880px;
+    height: 800px;
+
+    background: #4B79A1;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #283E51, #4B79A1);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+#input_area
+{
+    position: absolute;
+    /*border: 5px solid #C0C0C0; */
+    /* background: #ADD8E8; */
+    width: 450px;
+    height: 450px;
+    text-align:left;
+    border-radius: 15px;
+    top: 10px;
+    left: 210px;
+}
+
+.tbutton {
+    position: absolute;
+    background-color: #4B79A1; /* Slate Blue */
+    /*border: none; */
+    /* color: #808080;  /* Grey */
+    color: white;  /* Grey */
+    padding: 1px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 18px;
+    font-family: 'Lucida Sans';
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 15px;
+    /*border: 2px solid #008CBA;*/
+    border: 1px solid #1f2e2e;
+    width:  250px;
+    height: 35px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+
+.tbutton:hover {
+   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.header
+{
+    background: #303030;  /* hard gray */
+    position: absolute;
+    background-color: gray; /* Light Blue */
+    border: 1px solid black; 
+    /*border: none; */
+    /* color: #808080;  /* Grey */
+    color: white;  /* Grey */
+    padding: 5px;
+    padding-left: 25px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 40px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 850px;
+    height: 50px;
+    text-align:left;
+    border-radius: 10px;
+    margin: 3px;
+    background: #4B79A1;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #283E51, #4B79A1);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#title
+{
+    top:5px;
+    left:5px;
+}
+
+.ifield
+{
+    position: absolute;
+    font-size: 18px;
+    font-family: "Verdana";
+    position: absolute;
+    background-color: #c0c0c0;
+    border: 1px solid #396a93;
+    height: 30px;
+    width: 150px;
+    color: black;
+    padding-left:7px;
+    left: 200px;
+}
+
+
+.ilabel
+{
+    font-size: 20px;
+    position: absolute;
+    color: white;
+    /* text-shadow: 2px 2px #606060; */
+    text-shadow: 1px 1px black;
+    height: 30px;
+    left: 125px;
+}
+
+
+
+#userid_lbl
+{
+   top: 143px;
+   left: 122px;
+}
+
+#passwd_lbl
+{
+    top: 175px;
+   left: 98px;
+}
+
+#userid
+{
+   top: 160px;
+   left: 205px;
+}
+
+#passwd
+{
+    top: 193px;
+   left: 205px;
+}
+
+#enter 
+{
+   top: 240px;
+   left: 100px;
+}
+
+#register
+{
+    top: 280px;
+    left: 100px; 
+}
+
+#info
+{
+    position:absolute;
+    /*border: 1px solid black; */
+    width: 500px;
+    height: 100px;
+    top: 55px;
+    left: 190px;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Lucida Sans';
+    color: white;
+    visibility: hidden;
+}
+
+
+</style>
+</head>
+
+<script>
+
+    // time and date of last game week1
+    // after that game begins - the pool cannot take in any more players
+    // (i.e no more registrations)
+    // its the Raider/Charger late game Monday Night -> OAK,LAR,20180910,2220,,
+    var lock_date = 20180910;
+    var lock_time = 2220;
+    var close_timer = null;
+
+    //prevernts enter key from submitting form
+    function stopRKey(evt) 
+    { 
+        var evt = (evt) ? evt : ((event) ? event : null); 
+        var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null); 
+        if ((evt.keyCode == 13) && (node.type=="text"))  {return false;} 
+    } 
+    document.onkeypress = stopRKey;
+
+
+    function current_date()
+    {
+        var d= new Date();
+        var date = d.getFullYear() + ('0'+(d.getMonth()+1)).slice(-2) + ('0'+d.getDate()).slice(-2);
+        //return parseInt(date);
+        return date;
+    }
+
+    function current_time()
+    {
+        var d= new Date();
+        var date = d.getHours() + ('0'+d.getMinutes()).slice(-2);
+        //return parseInt(date);
+        return date;
+    }
+
+    // close registration after last game of week1 starts playinhg
+    function close_registration()
+    {
+        var cur_date = parseInt(current_date());
+        var cur_time = parseInt(current_time());
+
+        if ( cur_date > lock_date || (cur_date == lock_date && cur_time >= lock_time ))
+        {
+            var reg_button = document.getElementById("register");
+            reg_button.style.visibility = 'hidden';
+            reg_button.disabled = true; 
+        }
+
+        close_timer = setTimeout(close_registration,60000);
+    }
+
+    //error and info message block
+    function init_login()
+    {
+
+
+        //lines are divided by | - currently only sending 2 line messages
+        var msg = document.getElementById("message").innerHTML;
+        if (msg.length == 0 || msg == undefined)
+        {
+            document.getElementById("info").style.visibility = "hidden" ;
+            document.getElementById("message").style.visibility = "hidden" ;
+        }
+        else
+        {
+            var messages = msg.split("|");
+            var m = '';
+            for (i=0; i < messages.length; i++ )
+            {
+                if ( i == 0 )
+                {
+                    m = messages[i]
+                }
+                else
+                {
+                    m = m + "<br>" + messages[i]
+                }
+            }
+
+            document.getElementById("message").innerHTML = m;
+            document.getElementById("info").style.visibility = "visible" ;
+            document.getElementById("message").style.visibility = "visible" ;
+        }
+
+        close_registration();
+
+    }
+  
+</script>
+
+<body>
+    <div class="main_div">
+        <div class="header" id="title">Mulligan's Knockout Pool</div>
+
+        <div class='login_div'>
+        <div id="input_area">
+
+        <!--img id= "bball" src="bigger_ball.png" alt="big ball"-->
+            <div class='ilabel' id="userid_lbl">
+                <p>UserId</p>
+            </div>
+            <div class='ilabel' id="passwd_lbl">
+                <p>Password</p>
+            </div>
+            <form id='login_form' action='/login' method='post'>
+                <input class="ifield" id="userid", type="text" name='userid' value=''>
+                <input class="ifield" id="passwd", type="password" name='passwd' value=''>
+                <input class="tbutton" id="enter", type="submit" value='LOGIN'>
+            </form>
+            <form id="reggie" action='/show_register' method='get'>
+                <input class="tbutton" id="register", type="submit" value='REGISTER'>
+            </form>
+        </div>
+
+        <div id="info">
+            <!-- p id="message">{{ msg }}</p -->
+            <p id="message">{{ msg }}</p>
+        </div>
+        </div> 
+
+    </div>
+    
+</body>
+
+<script>
+  init_login();
+</script>
+
+
+</html>

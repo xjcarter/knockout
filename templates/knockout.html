@@ -1,0 +1,1141 @@
+
+<html>
+<head>
+<title>Mulligan's Knockout</title>
+<style type="text/css">
+
+/* hide the text fields holding passed value */
+.user_details {
+    visibility: hidden;
+}
+
+.rules_div
+{
+    position: absolute;
+    top: 10px;
+    left: 930px;
+    font-family: "Lucida Sans";
+    font-size: 15px;
+    width: 330px;
+}
+.rule_header
+{
+    position: absolute;
+    font-family: "Lucida Sans";
+    font-size: 25px;
+    left:50px;
+}
+.rules
+{
+    position: absolute;
+    top:50px;
+}
+
+.main_div
+{
+    position: absolute;
+    font-family: "Verdana";
+    top: 10px;
+    left: 10px;
+    width: 900px;
+    height: 920px;
+    border: 2px solid black;
+    border-radius: 8px;
+    background: #4B79A1;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #283E51, #4B79A1);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.teams_div
+{
+    font-family: "Verdana";
+    position: absolute;
+    top: 140px;
+    left: 325px;
+    border: 1px solid white;
+    border-radius: 15px;
+    /* width: 120%; */
+    width: 560px;
+    height: 750px;
+
+    background: #4B79A1;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #283E51, #4B79A1);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.picks_div
+{
+    position: absolute;
+    top: 140px;
+    left: 12px;
+    border: 1px solid white; 
+    border-radius: 15px;
+    /* width: 120%; */
+    width: 295px;
+    height: 750px;
+
+    background: #294156;  /* fallback for old browsers */
+
+}
+
+.box_button {
+    position: absolute;
+    /* background-color: #4B79A1; /* Light Blue */
+    background-color: #3b5b78; /* Light Blue */
+    /*border: none; */
+    /* color: #808080;  /* Grey */
+    color: white;  /* Grey */
+    padding: 1px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-family: "Lucida Sans";
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 15px;
+    border: 1px solid #1f2e2e;
+    width:  250px;
+    height: 35px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.tbutton {
+    position: absolute;
+    background-color: #4B79A1; /* Slate Blue */
+    /*border: none; */
+    /* color: #808080;  /* Grey */
+    color: white;  /* Grey */
+    padding: 1px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-family: "Lucida Sans";
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 15px;
+    /*border: 2px solid #008CBA;*/
+    border: 1px solid #1f2e2e;
+    width:  250px;
+    height: 35px;
+    visibility: hidden;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+#ARI
+{
+    top:10px;
+    left:20px;
+}
+
+#ATL
+{
+    top:10px;
+    left:290px;
+}
+
+#BAL
+{
+    top:50px;
+    left:20px;
+}
+
+#BUF
+{
+    top:50px;
+    left:290px;
+}
+
+#CAR
+{
+    top:90px;
+    left:20px;
+}
+
+#CHI
+{
+    top:90px;
+    left:290px;
+}
+
+#CIN
+{
+    top:130px;
+    left:20px;
+}
+
+#CLE
+{
+    top:130px;
+    left:290px;
+}
+
+#DAL
+{
+    top:170px;
+    left:20px;
+}
+
+#DEN
+{
+    top:170px;
+    left:290px;
+}
+
+#DET
+{
+    top:210px;
+    left:20px;
+}
+
+#GB
+{
+    top:210px;
+    left:290px;
+}
+
+#HOU
+{
+    top:250px;
+    left:20px;
+}
+
+#IND
+{
+    top:250px;
+    left:290px;
+}
+
+#JAX
+{
+    top:290px;
+    left:20px;
+}
+
+#KC
+{
+    top:290px;
+    left:290px;
+}
+
+#MIA
+{
+    top:330px;
+    left:20px;
+}
+
+#MIN
+{
+    top:330px;
+    left:290px;
+}
+
+#NE
+{
+    top:370px;
+    left:20px;
+}
+
+#NO
+{
+    top:370px;
+    left:290px;
+}
+
+#NYG
+{
+    top:410px;
+    left:20px;
+}
+
+#NYJ
+{
+    top:410px;
+    left:290px;
+}
+
+#OAK
+{
+    top:450px;
+    left:20px;
+}
+
+#PHI
+{
+    top:450px;
+    left:290px;
+}
+
+#PIT
+{
+    top:490px;
+    left:20px;
+}
+
+#LAC
+{
+    top:490px;
+    left:290px;
+}
+
+#SF
+{
+    top:530px;
+    left:20px;
+}
+
+#SEA
+{
+    top:530px;
+    left:290px;
+}
+
+#LAR
+{
+    top:570px;
+    left:20px;
+}
+
+#TB
+{
+    top:570px;
+    left:290px;
+}
+
+#TEN
+{
+    top:610px;
+    left:20px;
+}
+
+#WAS
+{
+    top:610px;
+    left:290px;
+}
+
+#XXX
+{
+    top:650px;
+    left:20px;
+    visibility: hidden;
+}
+
+#week1
+{
+    top: 10px;
+    left: 20px;
+}
+
+#week2
+{
+    top: 50px;
+    left: 20px;
+}
+
+#week3
+{
+    top: 90px;
+    left: 20px;
+}
+
+#week4
+{
+    top: 130px;
+    left: 20px;
+}
+
+#week5
+{
+    top: 170px;
+    left: 20px;
+}
+
+#week6
+{
+    top: 210px;
+    left: 20px;
+}
+
+#week7
+{
+    top: 250px;
+    left: 20px;
+}
+
+#week8
+{
+    top: 290px;
+    left: 20px;
+}
+
+#week9
+{
+    top: 330px;
+    left: 20px;
+}
+
+#week10
+{
+    top: 370px;
+    left: 20px;
+}
+#week11
+{
+    top: 410px;
+    left: 20px;
+}
+
+#week12
+{
+    top: 450px;
+    left: 20px;
+}
+
+#week13
+{
+    top: 490px;
+    left: 20px;
+}
+
+#week14
+{
+    top: 530px;
+    left: 20px;
+}
+
+#week15
+{
+    top: 570px;
+    left: 20px;
+}
+
+#week16
+{
+    top: 610px;
+    left: 20px;
+}
+
+#week17
+{
+    top: 650px;
+    left: 20px;
+}
+
+#week18
+{
+    top: 690px;
+    left: 20px;
+    visibility: hidden;
+}
+
+.box_button:hover {
+   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.tbutton:hover {
+   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.header
+{
+    background: #303030;  /* hard gray */
+    position: absolute;
+    background-color: gray; /* Light Blue */
+    border: 1px solid black; 
+    /*border: none; */
+    /* color: #808080;  /* Grey */
+    color: white;  /* Grey */
+    padding: 5px;
+    padding-left: 25px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 40px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 850px;
+    height: 50px;
+    text-align:left;
+    border-radius: 10px;
+    margin: 3px; 
+    background: #4B79A1;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #283E51, #4B79A1);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#title
+{
+    top:5px;
+    left:5px;
+}
+
+.subhead
+{
+    position: absolute;
+    /* color: #808080;  /* Grey */
+    color: white;  /* Grey */
+    padding: 1px;
+    padding-left: 20px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-family: 'Lucida Console';
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 200px;
+    height: 20px;
+    text-align:left;
+    margin: 3px; 
+}
+
+#date_time
+{
+    top:110px;
+    right:5px;
+    width: 230px;
+}
+
+#pick_header
+{
+    top:110px;
+    left:10px;
+    width: 300px;
+}
+
+#team_header
+{
+    top:110px;
+    left:320px;
+    width: 400px;
+}
+
+#alive_header
+{
+    position: absolute;
+    top:15px;
+    right:25px;
+    background-color: green; /* Light Blue */
+    border: 1px solid black;
+    /* color: #808080;  /* Grey */
+    color: white;  /* Grey */
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Lucida Console';
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 230px;
+    height: 25px;
+    text-align:left;
+    border-radius: 10px;
+}
+
+#saver
+{
+    position: absolute;
+    top:650px;
+    left:290px; 
+    width:  20px;
+    height: 20px;
+    visibility: hidden;
+}
+
+.posting
+{
+    position: absolute;
+    background-color: none;
+    color: white;
+    padding: 1px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    width: 600px;
+    height: 45px;
+    font-size: 40px;
+    text-align:left;
+    visibility: hidden;
+}
+
+#locked_msg
+{
+    top:200px;
+    left:20px;
+    padding-left: 50px;
+}
+
+#end_msg
+{
+    top:200px;
+    left:45px;
+    width: 500px;
+    /* border: 1px solid black; */
+    padding-left: 5px;
+    font-size: 30px;
+}
+
+
+#locked_button
+{
+    top:255px;
+    left:150px;
+    background-color: #3b5b78;
+    color: white;
+    visibility: hidden;
+}
+
+
+
+</style>
+</head>
+
+<script>
+
+    // all possible input buttons 
+    var ts =  "ARI|ATL|BAL|BUF|CAR|CHI|CIN|CLE|DAL|DEN|DET|GB|HOU|IND|JAX|";
+    ts = ts + "KC|MIA|MIN|NE|NO|NYG|NYJ|OAK|PHI|PIT|LAC|SF|SEA|LAR|TB|TEN|WAS";
+    var all_teams = ts.split('|');
+
+    //holds the id "weekN" for current box_button on the pick ladder
+    var current_week = '';
+    var curr_week_int = 0;
+    var status = null;
+    //lit = white, in_play= light green, win = green, loss = gray
+    var lit_color = "#eaeffa";
+    //var lit_color = "#0099ff";
+    //var in_play_color ='#00cc00';
+    var in_play_color ='#339933';
+    var win_color = '#006600';
+    // var loss_color = '#4e4e32';
+    var loss_color = '#141f1f';
+   // var gray_color = '#c2c2d6';
+   // var gray_color = '#3b5b78';
+    var gray_color = '#4d4d4d';
+
+    //temp var to hold team_name vs. score swapping.
+    var team_name = '';
+    var inactive_name = '';
+    var curr_pick = null;
+    var watchdog = null;
+
+
+    function current_date()
+    {
+        var d= new Date();
+        var date = d.getFullYear() + ('0'+(d.getMonth()+1)).slice(-2) + ('0'+d.getDate()).slice(-2);
+        //return parseInt(date);
+        return date;
+    }
+
+    function current_time()
+    {
+        var d= new Date();
+        var date = d.getHours() + ('0'+d.getMinutes()).slice(-2);
+        //return parseInt(date);
+        return date;
+    }
+
+    function pad_front(my_str,size)
+    {
+        var x = Math.max(0,size - my_str.length);
+        var pad = '\xa0';
+        var padding = '';
+        for (i=0;i < x;i++)
+        {
+            padding = padding + pad;
+        }
+        return padding + my_str;
+    }
+
+    function pick_team(obj)
+    {
+
+        if ( status == 'ALIVE' && obj.hasAttribute('inactive') == false )
+        {
+            var pick = document.getElementById(current_week);
+            var val = pick.value.slice(0,4);
+            if (val != "Week")
+            {
+                //re-enable the old pick
+                if ( pick.hasAttribute('team_code') )
+                {
+                    var old_pick = pick.getAttribute('team_code');
+                    var p = document.getElementById(old_pick);
+                    p.disabled = false; 
+                    p.style.visibility = 'visible';
+                }
+            }
+
+            //assign the new team
+            var team_code = obj.id;
+            var team_name = obj.value;
+            var kdate = obj.getAttribute('kdate');
+            var ktime = obj.getAttribute('ktime');
+
+            pick.value = team_name;
+            pick.setAttribute('team_code',team_code);
+            pick.setAttribute('kdate',kdate);
+            pick.setAttribute('ktime',ktime);
+
+            pick.style.backgroundColor= lit_color;
+            pick.style.color= "black";
+            document.getElementById('picked').value = team_code;
+
+            //disable the new selection 
+            obj.disabled = true;
+            obj.style.visibility = 'hidden';
+
+            // click hidden save button to submit save request to server
+            document.getElementById('saver').click();
+        } 
+
+    }
+
+    //cycke through teams to make sure its still a valid choice
+    //or freeze ladder if current_pick has kicked off
+    function check_kickoffs()
+    {
+        
+        var cdate = parseInt(current_date());
+        var ctime = parseInt(current_time());
+        var locked = false;
+
+        if ( status == 'ALIVE' && curr_pick != null )
+        {
+            if ( curr_pick.hasAttribute('kdate'))
+            {
+                var kickoff_date = curr_pick.getAttribute('kdate');
+                var kickoff_time = curr_pick.getAttribute('ktime');
+
+                if ((kickoff_date < cdate) || (kickoff_date == cdate && kickoff_time <= ctime))
+                {
+                    for (i=0; i < all_teams.length; i++ )
+                    {
+                        //disable everyone in the team grid 
+                        var q = document.getElementById(all_teams[i]);
+                        q.disabled = true;
+                        q.style.visibility = 'hidden';
+                    }
+
+                    curr_pick.setAttribute('inactive','PICK IN PLAY');
+                    curr_pick.style.backgroundColor = in_play_color;
+                    curr_pick.style.color = 'white';
+
+                    // post message for pick that is in play
+                    var lock_message = document.getElementById('locked_msg');
+                    lock_message.innerHTML = "Week " + curr_week_int.toString() + " Pick Locked.";
+                    lock_message.style.visibility = 'visible';
+                    //and show the current button pick just for aesthics
+                    var lb = document.getElementById('locked_button');
+                    lb.style.visibility = 'visible';
+                    lb.value = curr_pick.value;
+                    lb.disabled = true;
+
+                    locked = true;
+                }
+            }
+
+        }
+
+        
+        if ( status == 'ALIVE' && locked == false )
+        {
+            
+            //cycle thru all the teams and disable expired times
+            for (i=0; i < all_teams.length; i++)
+            {
+                var gray_button = document.getElementById(all_teams[i]);
+                if ( gray_button.hasAttribute('kdate'))
+                {
+                    var kickoff_date = gray_button.getAttribute('kdate');
+                    var kickoff_time = gray_button.getAttribute('ktime');
+
+                    if ((kickoff_date < cdate) || (kickoff_date == cdate && kickoff_time <= ctime))
+                    {
+                        gray_button.style.backgroundColor = gray_color; 
+                        gray_button.style.opacity = 0.6; 
+                        gray_button.setAttribute('inactive','PAST KICKOFF');
+                    }
+                }
+
+            }
+
+        }
+
+
+        //update disabled teams each minute - recurring
+        timestamp = document.getElementById('date_time');
+        timestamp.innerHTML = new Date().toString().slice(0,21); 
+        watchdog = setTimeout(check_kickoffs,60000);
+
+    }
+
+
+
+
+    // disable choosen boxes, highlight current chosen and available 
+    function ladder_init()
+    {
+
+        var current_user = document.getElementById("current_user").innerHTML;
+        status = document.getElementById("status").innerHTML;
+        var current_pick = document.getElementById("current_pick").innerHTML;
+
+        var used_path = document.getElementById("used_path").innerHTML;
+        var scores = document.getElementById("scores").innerHTML;
+        var win_loss_path = document.getElementById("win_loss_path").innerHTML;
+        var kickoff_times = document.getElementById("kickoff_times").innerHTML;
+        var byes = document.getElementById("byes").innerHTML;
+        var tally_str = document.getElementById("tally_str").innerHTML;
+
+
+        //post current survivor count
+        // comes in two parts survivors|total - need to split
+        var tt = tally_str.split('|');
+        var tally = 'SURVIVORS: '+ pad_front(tt[0],4) + ' of ' + pad_front(tt[1],4);
+        document.getElementById('alive_header').innerHTML = tally;
+        //pick header
+        document.getElementById('pick_header').innerHTML = "SELECTED: " + current_user;
+
+
+
+        // init used path and curent path in pick ladder
+        var week  = 1;
+        var used_teams =  new Array();
+        var team_scores =  new Array();
+        var wnl =  new Array();
+        if (used_path != "")
+        {
+            used_teams = used_path.split("|");
+            wnl = win_loss_path.split("|");
+            team_scores = scores.split("|");
+        }
+
+        //all path values are team CODES... use button ids to map back to  NAMES
+        for (i=0; i < used_teams.length; i++ )
+        {
+            var box = document.getElementById("week" + week.toString());
+            box.value = document.getElementById(used_teams[i]).value;
+            box.setAttribute('team_code',used_teams[i]);
+
+            var side = '';
+            if (wnl[i] == 'W')
+            {
+                box.style.backgroundColor= win_color;
+                side = 'WIN ';
+            }   
+            else if ( wnl[i] == 'L' )
+            {
+                box.style.backgroundColor = loss_color;
+                side = 'LOSS ';
+            }
+
+            //hold the box score of the pick
+            box.setAttribute('score',side + team_scores[i]);
+
+            week++;
+        }
+
+        current_week  = "week" + week.toString(); 
+        curr_week_int = week;
+
+
+        if ( status == 'ALIVE')
+        {
+
+            if ( current_pick != "" )
+            {
+                curr_pick = document.getElementById(current_week);
+                curr_pick.value = document.getElementById(current_pick).value;
+                curr_pick.setAttribute('team_code',current_pick);
+                curr_pick.style.backgroundColor= lit_color;
+                curr_pick.style.color= "black";
+                //curr_pick.style.color= 'black';
+
+                //disable current selection   
+                var selected = document.getElementById(current_pick);
+                selected.disabled = true; 
+                selected.style.visibility = 'hidden';
+            }
+        }
+        
+        if ( status == 'DEAD')
+        {
+            // let the user know they are out.
+            // and remove the rest of the week left.
+            var eliminated = document.getElementById(current_week);
+            eliminated.style.backgroundColor = 'black';
+            eliminated.value = 'ELIMINATED';
+            eliminated.disabled = true;
+            eliminated.style.visibility = 'visible';
+
+            for (i=week+1; i <= 17; i++ )
+            {
+                var unused = 'week' + i.toString();
+                var remove = document.getElementById(unused);
+                remove.disabled = true;
+                remove.style.visibility = 'hidden';
+            }
+
+            var end_message = document.getElementById('end_msg');
+            end_message.innerHTML = "Sorry, You've Been Eliminated.";
+            end_message.style.visibility = 'visible';
+        }
+
+
+        //if ELIMNATED - disable all remaing from the team grid
+        var remove_teams = all_teams;
+
+        if ( status == 'ALIVE' )
+        {
+            //only remove used teams
+            remove_teams = used_teams;
+
+            if ( byes != "" )
+            {
+                var disabled_teams = byes.split("|");
+                for (i=0; i < disabled_teams.length; i++)
+                {
+                    var gray_button = document.getElementById(disabled_teams[i]);
+                    gray_button.style.backgroundColor = gray_color;
+                    gray_button.style.opacity = 0.6;  
+                    gray_button.setAttribute('inactive','BYE WEEK');
+                }
+            }
+
+            // post kickoff times to all teams
+            if (kickoff_times != "")
+            {
+                //pit,20181222,1330|phi,20181223,1625
+                var kickoffs = kickoff_times.split('|');
+                for (i=0; i < kickoffs.length; i++)
+                {
+                    //team code, date, time
+                    var info = kickoffs[i].split(',');
+                    var team_code = info[0];
+                    var kdate = parseInt(info[1]);
+                    var ktime = parseInt(info[2]);
+
+                    var q = document.getElementById(team_code);
+                    q.setAttribute('kdate',kdate);
+                    q.setAttribute('ktime',ktime);
+
+                    if ( curr_pick != null )
+                    {
+                        if ( curr_pick.getAttribute('team_code') == team_code )
+                        {
+                            curr_pick.setAttribute('kdate',kdate);
+                            curr_pick.setAttribute('ktime',ktime);
+                        }
+                    }
+
+                }
+
+            }
+        }
+
+
+        //flag if user won the pool
+        if ( status == 'WINNER' )
+        {
+            // write out winner message 
+            // post message for pick that is in play
+            var end_message = document.getElementById('end_msg');
+            end_message.innerHTML = "You Survived! You're A Winner!";
+            end_message.style.visibility = 'visible';
+            remove_teams = all_teams;
+        }
+
+
+
+        // activate only buttons not used used or ALL selections if elimiated 
+        for (i=0; i < all_teams.length; i++)
+        {
+            if ( remove_teams.indexOf(all_teams[i]) == -1 )
+            {
+                var activate_button = document.getElementById(all_teams[i]);
+                activate_button.disabled = false; 
+                activate_button.style.visibility = 'visible';
+            }
+        }
+
+  
+
+        //init return value to server
+        document.getElementById('picked').value = current_pick;
+        document.getElementById('prev_path').value = used_path;
+        document.getElementById('my_user').value = current_user;
+
+        check_kickoffs();
+
+    }
+
+    //save the team name of the steop in the current path
+    //display the score of the game on hover of mouse (IN LADDER)
+    //or display reason why selection is diabled (IN TEAMS GRID)
+    function onMouseOver(obj)
+    {
+
+        if (obj.hasAttribute('score') )
+        {
+            team_name = obj.value;
+            obj.value = obj.getAttribute('score');
+        }
+        else
+        {
+            if (obj.hasAttribute('inactive') )
+            {
+                inactive_name = obj.value;
+                obj.value = obj.getAttribute('inactive');
+            }
+        }
+
+    }
+
+    //undo the above
+    function onMouseOut(obj)
+    {   
+        if (obj.hasAttribute('score') && team_name != '' )
+        {
+            obj.value = team_name;
+        }
+        else
+        {
+            if (obj.hasAttribute('inactive') && inactive_name != '')
+            {
+                obj.value = inactive_name;
+            }
+        }
+
+    }
+
+
+
+</script>
+
+<body>
+    <div class="main_div">
+    <div class="teams_div">
+        <!-- Teams Here -->
+        <input id='ARI' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='ARI' value='Arizona Cardinals' onclick='pick_team(this)'>
+        <input id='ATL' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='ATL' value='Atlanta Falcons' onclick='pick_team(this)'>
+        <input id='BAL' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='BAL' value='Baltimore Ravens' onclick='pick_team(this)'>
+        <input id='BUF' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='BUF' value='Buffalo Bills' onclick='pick_team(this)'>
+        <input id='CAR' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='CAR' value='Carolina Panthers' onclick='pick_team(this)'>
+        <input id='CHI' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='CHI' value='Chicago Bears' onclick='pick_team(this)'>
+        <input id='CIN' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='CIN' value='Cincinnati Bengals' onclick='pick_team(this)'>
+        <input id='CLE' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='CLE' value='Cleveland Browns' onclick='pick_team(this)'>
+        <input id='DAL' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='DAL' value='Dallas Cowboys' onclick='pick_team(this)'>
+        <input id='DEN' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='DEN' value='Denver Broncos' onclick='pick_team(this)'>
+        <input id='DET' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='DET' value='Detroit Lions' onclick='pick_team(this)'>
+        <input id='GB' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='GB' value='Green Bay Packers' onclick='pick_team(this)'>
+        <input id='HOU' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='HOU' value='Houston Texans' onclick='pick_team(this)'>
+        <input id='IND' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='IND' value='Indianapolis Colts' onclick='pick_team(this)'>
+        <input id='JAX' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='JAX' value='Jacksonville Jaguars' onclick='pick_team(this)'>
+        <input id='KC' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='KC' value='Kansas City Chiefs' onclick='pick_team(this)'>
+        <input id='MIA' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='MIA' value='Miami Dolphins' onclick='pick_team(this)'>
+        <input id='MIN' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='MIN' value='Minnesota Vikings' onclick='pick_team(this)'>
+        <input id='NE' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='NE' value='New England Patriots' onclick='pick_team(this)'>
+        <input id='NO' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='NO' value='New Orleans Saints' onclick='pick_team(this)'>
+        <input id='NYG' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='NYG' value='New York Giants' onclick='pick_team(this)'>
+        <input id='NYJ' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='NYJ' value='New York Jets' onclick='pick_team(this)'>
+        <input id='OAK' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='OAK' value='Oakland Raiders' onclick='pick_team(this)'>
+        <input id='PHI' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='PHI' value='Philadelphia Eagles' onclick='pick_team(this)'>
+        <input id='PIT' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='PIT' value='Pittsburgh Steelers' onclick='pick_team(this)'>
+        <input id='LAC' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='LAC' value='Los Angeles Chargers' onclick='pick_team(this)'>
+        <input id='SF' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='SF' value='San Francisco 49ers' onclick='pick_team(this)'>
+        <input id='SEA' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='SEA' value='Seattle Seahawks' onclick='pick_team(this)'>
+        <input id='LAR' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='LAR' value='Los Angeles Rams' onclick='pick_team(this)'>
+        <input id='TB' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='TB' value='Tampa Bay Buccaneers' onclick='pick_team(this)'>
+        <input id='TEN' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='TEN' value='Tennessee Titans' onclick='pick_team(this)'>
+        <input id='WAS' type='button' class='tbutton' onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' name='WAS' value='Washington Redskins' onclick='pick_team(this)'>
+        <!--Handles instanaces where user failed to pick a team that week-->
+        <input id='XXX' type='button' class='tbutton' name='XXX' value='No Selection'>
+
+        <!--Save activated indirectly vis a tbutton's pick_team() call-->
+        <form id='save_form' name='save_form' action='/save_ladder' method='post'>
+        <!-- this is a HIDDEN button -->
+            <input id="saver" type="submit" name="save_button" value="save">
+        <!-- Info passsed back to Server for Saving Picks-->
+            <input id="picked" type="hidden" value="" name="current_pick">
+            <!--input id="prev_path" type="hidden" value={{ used_path }} name="used_path"-->
+            <input id="prev_path" type="hidden" value="" name="used_path">
+            <input id="my_user" type="hidden" value="" name="current_user">
+        </form>
+        <!-- just a simple notification that the current pick is locked in once its games has started  -->
+        <div class="posting" id="locked_msg">"lockd"</div>
+        <div class="posting" id="end_msg">"the_end"</div>
+        <input class="box_button" id="locked_button" type="button" value=''>
+
+    </div>
+    <div class="picks_div">
+        <input class="box_button" id="week1", onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' type="button" value='Week 1'>
+        <input class="box_button" id="week2", onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' type="button" value='Week 2'>
+        <input class="box_button" id="week3", onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' type="button" value='Week 3'>
+        <input class="box_button" id="week4", onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' type="button" value='Week 4'>
+        <input class="box_button" id="week5", onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' type="button" value='Week 5'>
+        <input class="box_button" id="week6", onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' type="button" value='Week 6'>
+        <input class="box_button" id="week7", onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' type="button" value='Week 7'>
+        <input class="box_button" id="week8", onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' type="button" value='Week 8'>
+        <input class="box_button" id="week9", onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' type="button" value='Week 9'>
+        <input class="box_button" id="week10", onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' type="button" value='Week 10'>
+        <input class="box_button" id="week11", onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' type="button" value='Week 11'>
+        <input class="box_button" id="week12", onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' type="button" value='Week 12'>
+        <input class="box_button" id="week13", onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' type="button" value='Week 13'>
+        <input class="box_button" id="week14", onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' type="button" value='Week 14'>
+        <input class="box_button" id="week15", onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' type="button" value='Week 15'>
+        <input class="box_button" id="week16", onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' type="button" value='Week 16'>
+        <input class="box_button" id="week17", onmouseover='onMouseOver(this)' onmouseout='onMouseOut(this)' type="button" value='Week 17'>
+        <!-- needed button in case purson get eliminated in week 17 -->
+        <input class="box_button" id="week18", type="button" value=''>
+    </div>
+    <div class="subhead" id="team_header">AVAILABLE: Click To Choose</div>
+    <div class="subhead" id="pick_header">My Picks: </div>
+    <div class="header" id="title">Mulligan's Knockout Pool</div>
+    <div class="standings" id="alive_header">SURVIVORS: </div>
+    <div class="subhead" id="date_time">Jan 10 2018, 18:30</div>
+
+    </div>
+
+<div class="rules_div">
+<div class="rule_header"><p>Rules of the Game</p></div>
+<div class="rules">
+<br>
+<ol>
+<li>Players must select one NFL team to win in the current week's NFL games.<br><br>
+When picking a team to win each week, PLAYERS CAN ONLY USE EACH NFL TEAM ONCE</li><br>
+<li>If your selected team WINS in the current week - you SURVIVED the week's challenge - and now advance to the next week of competition.</li><br>
+<li>If your selected team LOSES in the current week - you are ELIMINATED from competition. &nbsp;GAME OVER.<br><br> Only players that continue to successfully pick a winning team each week advance to the next round.</li><br>
+<li>THE MULLIGAN: &nbsp;Each player is permitted one second chance attempt (a 'Mulligan') to remain in the pool upon suffering thier inital losing pick.<br>In effect, each player is allowed to continue to play if they failed on ONE pick.  &nbsp;Once they lose again - they are completely eliminated.</li><br>
+<li>The last player to continue to advance each week WINS THE ENTIRE POOL.<br>In the case of mulitple winners (i.e. everyone left get's knocked out of the pool at the same time), the pool is divided equally among the last remaining participants.</li><br>
+<li>When the game ends - priority goes to winning players that DID NOT use their second chance entry ('Mulligan').<br> If winners have picked perfectly - WINNINGS ARE DIVIDED AMONG THOSE PLAYERS ONLY.&nbsp; Otherwise, all ending survivors divide the total prize.</li>
+</ol>
+</div>
+</div>
+
+    <div id='server_to_client'>
+  <!-- stores passed values from login -->
+  <!-- passed from SERVER to CLIENT -->
+        <p class="user_details" id="nfl_week">{{ nfl_week }}</p>
+        <p class="user_details" id="current_user">{{ current_user }}</p>
+        <p class="user_details" id="current_pick">{{ current_pick }}</p>
+        <p class="user_details" id="used_path">{{ used_path }}</p>'
+        <p class="user_details" id="scores">{{ scores }}</p>'
+        <p class="user_details" id="win_loss_path">{{ win_loss_path }}</p>
+        <p class="user_details" id="tally_str">{{ tally_str }}</p>
+        <p class="user_details" id="kickoff_times">{{ kickoff_times }}</p>
+        <p class="user_details" id="byes">{{ byes }}</p>
+        <p class="user_details" id="status">{{ status }}</p>
+    </div>
+</body>
+<script>
+    ladder_init();
+</script>
+</html>

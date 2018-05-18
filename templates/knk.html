@@ -1,0 +1,647 @@
+
+<html>
+<head>
+<title>Mulligan's Knockout</title>
+<style type="text/css">
+
+/* hide the text fields holding passed value */
+.user_details {
+    visibility: hidden;
+}
+
+.main_div
+{
+    position: absolute;
+    font-family: "Verdana";
+    top: 10px;
+    left: 10px;
+    width: 900px;
+    height: 920px;
+    border: 2px solid black;
+}
+
+.teams_div
+{
+    font-family: "Verdana";
+    position: absolute;
+    top: 140px;
+    left: 320px;
+    border: 4px solid #ADD8E8;
+    border-radius: 15px;
+    /* width: 120%; */
+    width: 560px;
+    height: 750px;
+
+    background: #4B79A1;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #283E51, #4B79A1);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.picks_div
+{
+    font-family: "Verdana";
+    position: absolute;
+    top: 140px;
+    left: 10px;
+    border: 4px solid #ADD8E8;
+    border-radius: 15px;
+    /* width: 120%; */
+    width: 300px;
+    height: 750px;
+
+    background: #4B79A1;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #283E51, #4B79A1);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.box_button {
+    position: absolute;
+    background-color: gray; /* Light Blue */
+    /*border: none; */
+    /* color: #808080;  /* Grey */
+    color: white;  /* Grey */
+    padding: 1px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 15px;
+    border: 2px solid #008CBA;
+    width:  250px;
+    height: 35px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.tbutton {
+    position: absolute;
+    background-color: gray; /* Light Blue */
+    /*border: none; */
+    /* color: #808080;  /* Grey */
+    color: white;  /* Grey */
+    padding: 1px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 15px;
+    border: 2px solid #008CBA;
+    width:  250px;
+    height: 35px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+#ARI
+{
+    top:10px;
+    left:20px;
+}
+
+#ATL
+{
+    top:10px;
+    left:290px;
+}
+
+#BAL
+{
+    top:50px;
+    left:20px;
+}
+
+#BUF
+{
+    top:50px;
+    left:290px;
+}
+
+#CAR
+{
+    top:90px;
+    left:20px;
+}
+
+#CHI
+{
+    top:90px;
+    left:290px;
+}
+
+#CIN
+{
+    top:130px;
+    left:20px;
+}
+
+#CLE
+{
+    top:130px;
+    left:290px;
+}
+
+#DAL
+{
+    top:170px;
+    left:20px;
+}
+
+#DEN
+{
+    top:170px;
+    left:290px;
+}
+
+#DET
+{
+    top:210px;
+    left:20px;
+}
+
+#GB
+{
+    top:210px;
+    left:290px;
+}
+
+#HOU
+{
+    top:250px;
+    left:20px;
+}
+
+#IND
+{
+    top:250px;
+    left:290px;
+}
+
+#JAX
+{
+    top:290px;
+    left:20px;
+}
+
+#KC
+{
+    top:290px;
+    left:290px;
+}
+
+#MIA
+{
+    top:330px;
+    left:20px;
+}
+
+#MIN
+{
+    top:330px;
+    left:290px;
+}
+
+#NE
+{
+    top:370px;
+    left:20px;
+}
+
+#NO
+{
+    top:370px;
+    left:290px;
+}
+
+#NYG
+{
+    top:410px;
+    left:20px;
+}
+
+#NYJ
+{
+    top:410px;
+    left:290px;
+}
+
+#OAK
+{
+    top:450px;
+    left:20px;
+}
+
+#PHI
+{
+    top:450px;
+    left:290px;
+}
+
+#PIT
+{
+    top:490px;
+    left:20px;
+}
+
+#LAC
+{
+    top:490px;
+    left:290px;
+}
+
+#SF
+{
+    top:530px;
+    left:20px;
+}
+
+#SEA
+{
+    top:530px;
+    left:290px;
+}
+
+#LAR
+{
+    top:570px;
+    left:20px;
+}
+
+#TB
+{
+    top:570px;
+    left:290px;
+}
+
+#TEN
+{
+    top:610px;
+    left:20px;
+}
+
+#WAS
+{
+    top:610px;
+    left:290px;
+}
+
+#week1
+{
+    top: 10px;
+    left: 20px;
+}
+
+#week1
+{
+    top: 10px;
+    left: 20px;
+}
+
+#week2
+{
+    top: 50px;
+    left: 20px;
+}
+
+#week3
+{
+    top: 90px;
+    left: 20px;
+}
+
+#week4
+{
+    top: 130px;
+    left: 20px;
+}
+
+#week5
+{
+    top: 170px;
+    left: 20px;
+}
+
+#week6
+{
+    top: 210px;
+    left: 20px;
+}
+
+#week7
+{
+    top: 250px;
+    left: 20px;
+}
+
+#week8
+{
+    top: 290px;
+    left: 20px;
+}
+
+#week9
+{
+    top: 330px;
+    left: 20px;
+}
+
+#week10
+{
+    top: 370px;
+    left: 20px;
+}
+#week11
+{
+    top: 410px;
+    left: 20px;
+}
+
+#week12
+{
+    top: 450px;
+    left: 20px;
+}
+
+#week13
+{
+    top: 490px;
+    left: 20px;
+}
+
+#week14
+{
+    top: 530px;
+    left: 20px;
+}
+
+#week15
+{
+    top: 570px;
+    left: 20px;
+}
+
+#week16
+{
+    top: 610px;
+    left: 20px;
+}
+
+#week17
+{
+    top: 650px;
+    left: 20px;
+}
+
+
+
+.tbutton:hover {
+   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.header
+{
+    background: #303030;  /* hard gray */
+    position: absolute;
+    background-color: gray; /* Light Blue */
+    /*border: none; */
+    /* color: #808080;  /* Grey */
+    color: white;  /* Grey */
+    padding: 5px;
+    padding-left: 25px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 40px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 850px;
+    height: 50px;
+    text-align:left;
+    border-radius: 10px;
+    margin: 3px; 
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+#title
+{
+    top:5px;
+    left:5px;
+}
+
+.subhead
+{
+    position: absolute;
+    background-color: white; /* Light Blue */
+    /* color: #808080;  /* Grey */
+    color: black;  /* Grey */
+    padding: 1px;
+    padding-left: 20px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 200px;
+    height: 20px;
+    text-align:left;
+    border-radius: 10px;
+    margin: 3px; 
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+#pick_header
+{
+    top:110px;
+    left:60px;
+    width: 200px;
+}
+
+#team_header
+{
+    top:110px;
+    left:450px;
+    width: 400px;
+}
+
+#alive_header
+{
+    position: absolute;
+    top:15px;
+    right:25px;
+    background-color: green; /* Light Blue */
+    border: 1px solid black;
+    /* color: #808080;  /* Grey */
+    color: white;  /* Grey */
+    padding: 1px;
+    padding-left: 15px;
+    padding-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 230px;
+    height: 30px;
+    text-align:left;
+    border-radius: 10px;
+    margin: 3px; 
+}
+
+#eliminated
+{
+    position: absolute;
+    bottom:40px;
+    left:85px;
+    background-color: black; /* Light Blue */
+    border: 1px solid white;
+    /* color: #808080;  /* Grey */
+    color: white;  /* Grey */
+    padding: 1px;
+    padding-left: 15px;
+    padding-bottom: 5px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 130px;
+    height: 20px;
+    text-align:left;
+    border-radius: 10px;
+    margin: 3px; 
+}
+
+#saver
+{
+    position: absolute;
+    top:650px;
+    left:290px; 
+    width:  20px;
+    height: 20px;
+    visibility: hidden;
+}
+
+
+.box_button:hover {
+   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.tbox_button:hover span {
+  display: none
+}
+
+.tbox_button:hover:before {
+  content: "jimmy";
+}
+
+
+
+
+</style>
+</head>
+<script>
+    function current_date()
+    {
+        var d= new Date();
+        var date = d.getFullYear() + ('0'+(d.getMonth()+1)).slice(-2) + ('0'+d.getDate()).slice(-2);
+        //return parseInt(date);
+        return date;
+    }
+
+    function current_time()
+    {
+        var d= new Date();
+        var date = d.getHours() + ('0'+d.getMinutes()).slice(-2);
+        //return parseInt(date);
+        return date;
+    }
+
+</script>
+<body>
+    <div class="main_div">
+    <div class="teams_div">
+        <!-- Teams Here -->
+        <input id='ARI' type='button' class='tbutton' name='ARI' value='Arizona Cardinals' onclick='pick_team(this)'>
+        <input id='ATL' type='button' class='tbutton' name='ATL' value='Atlanta Falcons' onclick='pick_team(this)'>
+        <input id='BAL' type='button' class='tbutton' name='BAL' value='Baltimore Ravens' onclick='pick_team(this)'>
+        <input id='BUF' type='button' class='tbutton' name='BUF' value='Buffalo Bills' onclick='pick_team(this)'>
+        <input id='CAR' type='button' class='tbutton' name='CAR' value='Carolina Panthers' onclick='pick_team(this)'>
+        <input id='CHI' type='button' class='tbutton' name='CHI' value='Chicago Bears' onclick='pick_team(this)'>
+        <input id='CIN' type='button' class='tbutton' name='CIN' value='Cincinnati Bengals' onclick='pick_team(this)'>
+        <input id='CLE' type='button' class='tbutton' name='CLE' value='Cleveland Browns' onclick='pick_team(this)'>
+        <input id='DAL' type='button' class='tbutton' name='DAL' value='Dallas Cowboys' onclick='pick_team(this)'>
+        <input id='DEN' type='button' class='tbutton' name='DEN' value='Denver Broncos' onclick='pick_team(this)'>
+        <input id='DET' type='button' class='tbutton' name='DET' value='Detroit Lions' onclick='pick_team(this)'>
+        <input id='GB' type='button' class='tbutton' name='GB' value='Green Bay Packers' onclick='pick_team(this)'>
+        <input id='HOU' type='button' class='tbutton' name='HOU' value='Houston Texans' onclick='pick_team(this)'>
+        <input id='IND' type='button' class='tbutton' name='IND' value='Indianapolis Colts' onclick='pick_team(this)'>
+        <input id='JAX' type='button' class='tbutton' name='JAX' value='Jacksonville Jaguars' onclick='pick_team(this)'>
+        <input id='KC' type='button' class='tbutton' name='KC' value='Kansas City Chiefs' onclick='pick_team(this)'>
+        <input id='MIA' type='button' class='tbutton' name='MIA' value='Miami Dolphins' onclick='pick_team(this)'>
+        <input id='MIN' type='button' class='tbutton' name='MIN' value='Minnesota Vikings' onclick='pick_team(this)'>
+        <input id='NE' type='button' class='tbutton' name='NE' value='New England Patriots' onclick='pick_team(this)'>
+        <input id='NO' type='button' class='tbutton' name='NO' value='New Orleans Saints' onclick='pick_team(this)'>
+        <input id='NYG' type='button' class='tbutton' name='NYG' value='New York Giants' onclick='pick_team(this)'>
+        <input id='NYJ' type='button' class='tbutton' name='NYJ' value='New York Jets' onclick='pick_team(this)'>
+        <input id='OAK' type='button' class='tbutton' name='OAK' value='Oakland Raiders' onclick='pick_team(this)'>
+        <input id='PHI' type='button' class='tbutton' name='PHI' value='Philadelphia Eagles' onclick='pick_team(this)'>
+        <input id='PIT' type='button' class='tbutton' name='PIT' value='Pittsburgh Steelers' onclick='pick_team(this)'>
+        <input id='LAC' type='button' class='tbutton' name='LAC' value='Los Angeles Chargers' onclick='pick_team(this)'>
+        <input id='SF' type='button' class='tbutton' name='SF' value='San Francisco 49ers' onclick='pick_team(this)'>
+        <input id='SEA' type='button' class='tbutton' name='SEA' value='Seattle Seahawks' onclick='pick_team(this)'>
+        <input id='LAR' type='button' class='tbutton' name='LAR' value='Los Angeles Rams' onclick='pick_team(this)'>
+        <input id='TB' type='button' class='tbutton' name='TB' value='Tampa Bay Buccaneers' onclick='pick_team(this)'>
+        <input id='TEN' type='button' class='tbutton' name='TEN' value='Tennessee Titans' onclick='pick_team(this)'>
+        <input id='WAS' type='button' class='tbutton' name='WAS' value='Washington Redskins' onclick='pick_team(this)'>
+
+        <!--Save activated indirectly vis a tbutton's pick_team() call-->
+        <form id='save_form' name='save_form' action='/save_ladder' method='post'>
+        <!-- this is a HIDDEN button -->
+            <input id="saver" type="submit" name="save_button" value="save">
+        <!-- Info passsed back to Server for Saving Picks-->
+            <input id="picked" type="hidden" value="" name="current_pick">
+            <!--input id="prev_path" type="hidden" value={{ used_path }} name="used_path"-->
+            <input id="prev_path" type="hidden" value="" name="used_path">
+            <input id="my_user" type="hidden" value="" name="current_user">
+        </form>
+    </div>
+    <div class="picks_div">
+        <input class="box_button" id="week1", type="button" value='Week 1'>
+        <input class="box_button" id="week2", type="button" value='Week 2'>
+        <input class="box_button" id="week3", type="button" value='Week 3'>
+        <input class="box_button" id="week4", type="button" value='Week 4'>
+        <input class="box_button" id="week5", type="button" value='Week 5'>
+        <input class="box_button" id="week6", type="button" value='Week 6'>
+        <input class="box_button" id="week7", type="button" value='Week 7'>
+        <input class="box_button" id="week8", type="button" value='Week 8'>
+        <input class="box_button" id="week9", type="button" value='Week 9'>
+        <input class="box_button" id="week10", type="button" value='Week 10'>
+        <input class="box_button" id="week11", type="button" value='Week 11'>
+        <input class="box_button" id="week12", type="button" value='Week 12'>
+        <input class="box_button" id="week13", type="button" value='Week 13'>
+        <input class="box_button" id="week14", type="button" value='Week 14'>
+        <input class="box_button" id="week15", type="button" value='Week 15'>
+        <input class="box_button" id="week16", type="button" value='Week 16'>
+        <input class="box_button" id="week17", type="button" value='Week 17'>
+        <span id="tip">Tooltip text</span>
+    </div>
+    <div class="subhead" id="team_header">Available Teams: Click To Choose</div>
+    <div class="subhead" id="pick_header">My Picks: </div>
+    <div class="header" id="title">Mulligan's Knockout Pool</div>
+    <div class="standings" id="alive_header">SURVIVORS: </div>
+    <div class="dead" id="eliminated">ELIMINATED</div>
+
+    </div>
+<script>
+    window.alert(current_date() + "  " + current_time());
+</script>
+</body>
+
+</html>
