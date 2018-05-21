@@ -642,6 +642,22 @@
         return date;
     }
 
+    function current_time_AMPM()
+    {
+        var d= new Date();
+        var hours = d.getHours();
+        var daythime = ' a';
+        if ( hours > 12 )
+        {
+            daytime = ' p';
+            hours = hours - 12;
+        }
+
+        var date = hours + ":" + ('0'+d.getMinutes()).slice(-2) + daytime;
+        //return parseInt(date);
+        return date;
+    }
+
     function pad_front(my_str,size)
     {
         var x = Math.max(0,size - my_str.length);
@@ -772,7 +788,8 @@
 
         //update disabled teams each minute - recurring
         timestamp = document.getElementById('date_time');
-        timestamp.innerHTML = new Date().toString().slice(0,21); 
+        //timestamp.innerHTML = new Date().toString().slice(0,21); 
+        timestamp.innerHTML = new Date().toString().slice(0,16) + current_time_AMPM(); 
         watchdog = setTimeout(check_kickoffs,60000);
 
     }

@@ -311,10 +311,10 @@
         </div>
 
         <form id='register_form' action="/register" method='post'>
-            <input class="ifield" id="fullname", type="text" name="fullname" value=''>
-            <input class="ifield" id="userid", type="text" name="userid" value=''>
-            <input class="ifield" id="email", type="text" name="email" value=''>
-            <input class="ifield" id="phone", type="text" name="phone" value=''>
+            <input class="ifield" id="fullname", type="text" name="fullname" value='{{ iname }}'>
+            <input class="ifield" id="userid", type="text" name="userid" value='{{ iuser_id }}'>
+            <input class="ifield" id="email", type="text" name="email" value='{{ iemail }}'>
+            <input class="ifield" id="phone", type="text" name="phone" value='{{ iphone }}'>
             <input class="ifield" id="passwd", type="password" name="passwd" value=''>
             <input class="ifield" id="confirm", type="password" name="confirm" value=''>
             <input class="tbutton" id="enter", type="submit" value='REGISTER'>
@@ -323,7 +323,7 @@
 
         <div id="info">
             <!-- p id="message">{{ msg }}</p -->
-            <p id="message">Provide Contact Details|And Create a UserId and Password.</p>
+            <p id="message">{{ msg }}</p>
         </div>
         </div> 
 

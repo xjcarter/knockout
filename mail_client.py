@@ -13,7 +13,7 @@ import pandas
 import time
 
 gmail_user = "xjcarter@gmail.com"
-gmail_pwd = "Biggie001" 
+gmail_pwd = "Bl@ckpanther" 
 
 test_html = """
 <html>

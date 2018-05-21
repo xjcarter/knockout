@@ -402,28 +402,35 @@ def validated(name,email,phone,user_id,passwd,confirm,players_data):
     userid_regex = re.compile(r"([a-zA-Z0-9_]+$)")
     phone_regex = re.compile(r"(\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4})")
 
+    inputs = dict(name=name,email=email,phone=phone,user_id=user_id)
+
     if not name_regex.match(name):
-        return r"Invalid Name.|Please Enter First and Last Name"
+        inputs['name'] =''
+        return r"Invalid Name.|Please Enter First and Last Name", inputs
     if not email_regex.match(email):
-        return r"Invalid Email.|Please Valid Email Address"
-    if not phone_regex.match(phone):
-        return r"Invalid Phone Number Format.|Please Include Area Code and Number"
+        inputs['email'] =''
+        return r"Invalid Email.|Please Valid Email Address", inputs
+    if len(phone) < 10 or not phone_regex.match(phone):
+        inputs['phone'] =''
+        return r"Invalid Phone Number Format.|Please Include Area Code and Number", inputs
     if not userid_regex.match(user_id):
-        return r"Invalid UserId.|Userid Contains Letters and Numbers Only"
+        inputs['user_id'] =''
+        return r"Invalid UserId.|Userid Contains Letters and Numbers Only", inputs
     if len(user_id) < 6:
-        return r"Invalid UserId.|Userid Must Be At Least 6 Characters."
+        inputs['user_id'] =''
+        return r"Invalid UserId.|Userid Must Be At Least 6 Characters.", inputs
     if  "," in passwd:
-        return r"Invalid Password.|Password Contains Commas"
+        return r"Invalid Password.|Password Contains Commas", inputs
     if len(passwd) < 6:
-        return r"Invalid Password.|Password Must Be At Least 6 Characters."
+        return r"Invalid Password.|Password Must Be At Least 6 Characters.", inputs
     if passwd != confirm:
-        return r"Invalid Password.|Password and Confirm Do Not Match."
+        return r"Invalid Password.|Password and Confirm Do Not Match.", inputs
 
     userids = [ x['user_id'].lower() for x in players_data ]
     if user_id.lower() in userids:
-        return r'Invalid UserId.|'+user_id+ r' Has Already Been Registered'
+        return r'Invalid UserId.|'+user_id+ r' Has Already Been Registered', inputs
 
-    return None
+    return None, inputs
 
 def email_me(new_user):
 
@@ -500,7 +507,11 @@ def email_me(new_user):
 @app.route("/show_register")
 def show_register(*args,**kwargs):
     info = r'Provide Contact Details|And Create a UserId and Password.'
-    return render_template("knockout_register.html",msg=info)
+    return render_template("knockout_register.html",msg=info,
+                                                    iname='',
+                                                    iuser_id='',
+                                                    iphone='',
+                                                    iemail='')
 
 
 @app.route("/register", methods=['POST'])
@@ -514,7 +525,7 @@ def register(*args,**kwargs):
 
     players_data, header = read_csv('players.csv')
 
-    error = validated(name,email,phone,user_id,passwd,confirm,players_data)
+    error, inputs = validated(name,email,phone,user_id,passwd,confirm,players_data)
     if error == None:
         new_user=dict(user_id=user_id,
                       name=name,
@@ -538,10 +549,14 @@ def register(*args,**kwargs):
         email_me(new_user)
 
         ## take them back to login page
-        return render_template('knockout_login.html', msg= "'" + user_id + "'|Registration Complete.")
+        msg =  name + " ['" + user_id + "']|Registration Complete."
+        return render_template('knockout_login.html', msg=msg)
     else:
-        return render_template('knockout_register.html', msg=error)
-
+        return render_template('knockout_register.html', msg=error,
+                                                        iname=inputs['name'],
+                                                        iphone=inputs['phone'],
+                                                        iemail=inputs['email'],
+                                                        iuser_id=inputs['user_id'])
 
 
 def stats_and_standings(send_to):
