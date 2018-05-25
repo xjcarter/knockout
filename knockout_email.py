@@ -98,7 +98,7 @@ def generate_player_report(report_week,
 
     alert = { 'PERFECT':'#00b300', 
               'ALIVE': '#006600',
-              'DEAD': '#4d4d00',
+              'DEAD': '#000000',
               'WINNER': '#0080ff'
             }
 

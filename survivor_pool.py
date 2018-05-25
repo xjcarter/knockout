@@ -1,5 +1,5 @@
 
-import os
+import shutil 
 from flask import *
 import re
 import datetime
@@ -559,6 +559,14 @@ def register(*args,**kwargs):
                                                         iuser_id=inputs['user_id'])
 
 
+
+
+'''
+WEEKLY REPORTING 
+
+'''
+
+
 def stats_and_standings(send_to):
     global mulligans 
     global COMMISSIONER
@@ -672,9 +680,37 @@ def stats_and_standings(send_to):
                                                                 summary_info=summary_info,
                                                                 team_freqs=freq,
                                                                 nfl_teams=nfl_teams)
-                                                                    
+                try:                                                                    
+                    mail_client.mail(p['email'],subject,text='',html=email_rpt)
+                    print("emailing: %s %s" % (user_id, p['email']))
+                except:
+                    print("emailing: %s %s FAILED" % (user_id, p['email']))
+
+
+    ## indiv email - used in demo executions
+    if send_to.startswith("DEMO"):
+        user_id = send_to.split()[1]  #'DEMO user_id'
+        p = pick_map[user_id]
+
+        subject = "Mulligan's KnockOut Pool  "
+        subject += "Week %d Report (DEMO)" % report_week
+
+        if len(p['used_path']) >= report_week:
+            email_rpt =  knockout_email.generate_player_report(report_week=report_week,
+                                                            players=players,
+                                                            user_id=user_id,
+                                                            scoreboard=scoreboard,
+                                                            vitals=p,
+                                                            summary_info=summary_info,
+                                                            team_freqs=freq,
+                                                            nfl_teams=nfl_teams)
+            try:                                                                    
                 mail_client.mail(p['email'],subject,text='',html=email_rpt)
-                print("emailing: %s %s" % (user_id, p['email']))
+                print("DEMO emailing: %s %s" % (user_id, p['email']))
+            except:
+                print("DEMO emailing: %s %s FAILED" % (user_id, p['email']))
+
+
 
 
 
@@ -694,11 +730,89 @@ def send_players_report(*args, **kwargs):
 def report_controls(*args, **kwargs):
     return render_template("report_controls.html",info='')
 
+'''
+GAME DEMO 
+
+'''
+
+def init_pick_files():
+    ## After the player has registered
+    ## (his name will be the last entry in the players.csv file)
+    ## replace his user name in the demo picks**.csv files 
+    players, _ = read_csv('players.csv')
+    demo_user = players[-1]['user_id']
+    for f in "picks_wk8.csv picks_wk9.csv picks_wk17.csv".split():
+        picks, _ = read_csv(f)
+        picks[-1]['player'] = demo_user
+        to_csv(f,picks)
+
+
+def play(score_file,report=False):
+    shutil.copy(score_file,'nfl_sched.csv')
+    players, _ = read_csv('players.csv')
+    demo_user = players[-1]['user_id']
+
+    if report:
+        stats_and_standings(send_to='DEMO ' + demo_user)
+
+def ff_picks(picks_file):
+    shutil.copy(picks_file,'picks.csv')
+
+
+@app.route("/reset_demo")
+def reset_demo(*args, **kwargs):
+    shutil.copy('nfl_sched.csv','nfl_sched.bkp')
+    shutil.copy('nfl_sched_wk0.csv','nfl_sched.csv')
+    shutil.copy('picks.csv','picks.bkp')
+    shutil.copy('players.csv','players.bkp')
+    return render_template("demo_controls.html",info='DEMO RESET')
+
+@app.route("/demo")
+def demo_controls(*args, **kwargs):
+    return reset_demo()
+
+@app.route("/play_wk1")
+def play_week1(*args, **kwargs):
+    play('nfl_sched_wk1.csv',True)
+    return render_template("demo_controls.html",info='WEEK 1 COMPLETE')
+
+@app.route("/play_wk2")
+def play_week2(*args, **kwargs):
+    play('nfl_sched_wk2.csv',True)
+    return render_template("demo_controls.html",info='WEEK 2 COMPLETE')
+
+@app.route("/play_wk8")
+def play_week8(*args, **kwargs):
+    init_pick_files() # 7
+    ff_picks('picks_wk8.csv')  # 8 
+    play('nfl_sched_wk8.csv',True) 
+    return render_template("demo_controls.html",info='WEEK 8 COMPLETE')
+
+@app.route("/play_wk9")
+def play_week9(*args, **kwargs):
+    play('nfl_sched_wk9.csv',True)
+    return render_template("demo_controls.html",info='WEEK 9 COMPLETE')
+
+@app.route("/play_wk17")
+def play_week17(*args, **kwargs):
+    ff_picks('picks_wk17.csv')  # 11
+    play('nfl_sched_wk17.csv',True) 
+    return render_template("demo_controls.html",info='WEEK 17 COMPLETE')
+
+@app.route("/cleanup_demo")
+def ckeanup_demo(*args, **kwargs):
+    shutil.copy('nfl_sched.bkp','nfl_sched.csv')
+    shutil.copy('picks.bkp','picks.csv')
+    shutil.copy('players.bkp','players.csv')
+    return render_template("demo_controls.html",info='DEMO CLEANED')
+
+
 
 
 
 if __name__ == "__main__":
     app.run(debug=True)
+
 
 
 

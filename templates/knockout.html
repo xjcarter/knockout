@@ -646,7 +646,7 @@
     {
         var d= new Date();
         var hours = d.getHours();
-        var daythime = ' a';
+        var daytime = ' a';
         if ( hours > 12 )
         {
             daytime = ' p';
@@ -785,12 +785,13 @@
 
         }
 
-
+        
         //update disabled teams each minute - recurring
         timestamp = document.getElementById('date_time');
         //timestamp.innerHTML = new Date().toString().slice(0,21); 
         timestamp.innerHTML = new Date().toString().slice(0,16) + current_time_AMPM(); 
         watchdog = setTimeout(check_kickoffs,60000);
+
 
     }
 
@@ -962,6 +963,14 @@
         //flag if user won the pool
         if ( status == 'WINNER' )
         {
+
+            // show a winner tag at the end of the ladder
+            var victor = document.getElementById(current_week);
+            victor.style.backgroundColor = '#0080ff';
+            victor.value = 'WINNER';
+            victor.disabled = true;
+            victor.style.visibility = 'visible';
+
             // write out winner message 
             // post message for pick that is in play
             var end_message = document.getElementById('end_msg');
@@ -984,6 +993,8 @@
         }
 
   
+       
+
 
         //init return value to server
         document.getElementById('picked').value = current_pick;
