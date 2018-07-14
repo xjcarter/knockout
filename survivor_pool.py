@@ -74,6 +74,10 @@ def parse_path(path,scoreboard):
             team = path[j].upper()
             used_path.append(team)
             if team != 'XXX':
+                ## the - 'dash' is for the ladder display
+                ## tagging "WIN" or "LOSS" with the score appended to scores[]
+                ## ie the result item on the webpage looks loke
+                ## "WIN - PHI 34, BAL 20"
                 scores.append("- " + row[team])
             else:
                 scores.append("")

@@ -4,10 +4,10 @@
 
 import getpass
 import smtplib
-from email.MIMEMultipart import MIMEMultipart
-from email.MIMEBase import MIMEBase
-from email.MIMEText import MIMEText
-from email import Encoders
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
+from email.mime.text import MIMEText
+from email import encoders
 import os
 import pandas
 import time
@@ -20,13 +20,13 @@ test_html = """
 <head>
 </head>
 <body>
-<div class="rules_div">
+<div class="rules_div>
 <div class="rule_header"><p>Three Little Pigs</p></div>
 <div class="rules">
 <ol>
 <li>One little piggy</li>
 <li>Twp little piggy</li>
-<li>Three little piggy</li>
+<li>Three little piggy</l>
 </ol>
 </div>
 </div>
@@ -50,7 +50,7 @@ def mail(to, subject, text, html=None, attach=None):
 	if attach:
 		part = MIMEBase('application', 'octet-stream')
 		part.set_payload(open(attach, 'rb').read())
-		Encoders.encode_base64(part)
+		encoders.encode_base64(part)
 		part.add_header('Content-Disposition', 'attachment; filename="%s"' % os.path.basename(attach))
 		msg.attach(part)
 	mailServer = smtplib.SMTP("smtp.gmail.com", 587)
